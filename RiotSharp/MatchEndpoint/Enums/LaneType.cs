@@ -25,7 +25,7 @@ namespace RiotSharp.MatchEndpoint.Enums
         TopLane
     }
 
-    static class LaneTypeExtension
+    internal static class LaneTypeExtension
     {
         public static string ToCustomString(this LaneType laneType)
         {

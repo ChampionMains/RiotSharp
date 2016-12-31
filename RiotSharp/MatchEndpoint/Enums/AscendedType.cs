@@ -25,7 +25,7 @@ namespace RiotSharp.MatchEndpoint.Enums
         MinionAscended
     }
 
-    static class AscendedTypeExtension
+    internal static class AscendedTypeExtension
     {
         public static string ToCustomString(this AscendedType ascendedType)
         {

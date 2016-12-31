@@ -5,7 +5,7 @@ using System.Reflection;
 
 namespace RiotSharp.CurrentGameEndpoint.Enums.Converters
 {
-    class GameQueueTypeConverter : JsonConverter
+    internal class GameQueueTypeConverter : JsonConverter
     {
         public override bool CanConvert(Type objectType)
         {
@@ -39,6 +39,7 @@ namespace RiotSharp.CurrentGameEndpoint.Enums.Converters
                 case "6":
                     return GameQueueType.RankedPremade5x5;
                 case "RANKED_PREMADE_3x3":
+                    return GameQueueType.RankedPremade3x3;
                 case "RANKED_FLEX_TT":
                 case "9":
                     return GameQueueType.RankedFlexTT;
@@ -154,140 +155,7 @@ namespace RiotSharp.CurrentGameEndpoint.Enums.Converters
 
         public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
         {
-            var subType = (GameQueueType)value;
-            string result;
-            switch (subType)
-            {
-                case GameQueueType.Custom:
-                    result = "CUSTOM";
-                    break;
-                case GameQueueType.Normal3x3:
-                    result = "NORMAL_3x3";
-                    break;
-                case GameQueueType.Normal5x5Blind:
-                    result = "NORMAL_5x5_BLIND";
-                    break;
-                case GameQueueType.Normal5x5Draft:
-                    result = "NORMAL_5x5_DRAFT";
-                    break;
-                case GameQueueType.RankedSolo5x5:
-                    result = "RANKED_SOLO_5x5";
-                    break;
-                case GameQueueType.RankedPremade5x5:
-                    result = "RANKED_PREMADE_5x5";
-                    break;
-                case GameQueueType.RankedFlexTT:
-                    result = "RANKED_FLEX_TT";
-                    break;
-                case GameQueueType.RankedTeam3x3:
-                    result = "RANKED_TEAM_3x3";
-                    break;
-                case GameQueueType.RankedTeam5x5:
-                    result = "RANKED_TEAM_5x5";
-                    break;
-                case GameQueueType.Odin5x5Blind:
-                    result = "ODIN_5x5_BLIND";
-                    break;
-                case GameQueueType.Odin5x5Draft:
-                    result = "ODIN_5x5_DRAFT";
-                    break;
-                case GameQueueType.Bot5x5:
-                    result = "BOT_5x5";
-                    break;
-                case GameQueueType.BotOdin5x5:
-                    result = "BOT_ODIN_5x5";
-                    break;
-                case GameQueueType.Bot5x5Intro:
-                    result = "BOT_5x5_INTRO";
-                    break;
-                case GameQueueType.Bot5x5Beginner:
-                    result = "BOT_5x5_BEGINNER";
-                    break;
-                case GameQueueType.Bot5x5Intermediate:
-                    result = "BOT_5x5_INTERMEDIATE";
-                    break;
-                case GameQueueType.BotTt3x3:
-                    result = "BOT_TT_3x3";
-                    break;
-                case GameQueueType.GroupFinder5x5:
-                    result = "GROUP_FINDER_5x5";
-                    break;
-                case GameQueueType.Aram5x5:
-                    result = "ARAM_5x5";
-                    break;
-                case GameQueueType.Oneforall5x5:
-                    result = "ONEFORALL_5x5";
-                    break;
-                case GameQueueType.Firstblood1x1:
-                    result = "FIRSTBLOOD_1x1";
-                    break;
-                case GameQueueType.Firstblood2x2:
-                    result = "FIRSTBLOOD_2x2";
-                    break;
-                case GameQueueType.Sr6x6:
-                    result = "SR_6x6";
-                    break;
-                case GameQueueType.Urf5x5:
-                    result = "URF_5x5";
-                    break;
-                case GameQueueType.OneForAllMirrorMode:
-                    result = "ONEFORALL_MIRRORMODE_5x5";
-                    break;
-                case GameQueueType.BotUrf5x5:
-                    result = "BOT_URF_5x5";
-                    break;
-                case GameQueueType.NightmareBot5x5Rank1:
-                    result = "NIGHTMARE_BOT_5x5_RANK1";
-                    break;
-                case GameQueueType.NightmareBot5x5Rank2:
-                    result = "NIGHTMARE_BOT_5x5_RANK2";
-                    break;
-                case GameQueueType.NightmareBot5x5Rank5:
-                    result = "NIGHTMARE_BOT_5x5_RANK5";
-                    break;
-                case GameQueueType.Ascension5x5:
-                    result = "ASCENSION_5x5";
-                    break;
-                case GameQueueType.Hexakill:
-                    result = "HEXAKILL";
-                    break;
-                case GameQueueType.BilgewaterAram5x5:
-                    result = "BILGEWATER_ARAM_5x5";
-                    break;
-                case GameQueueType.KingPoro5x5:
-                    result = "KING_PORO_5x5";
-                    break;
-                case GameQueueType.CounterPick:
-                    result = "COUNTER_PICK";
-                    break;
-                case GameQueueType.Bilgewater5x5:
-                    result = "BILGEWATER_5x5";
-                    break;
-                case GameQueueType.Siege:
-                    result = "SIEGE";
-                    break;
-                case GameQueueType.DefinitelyNotDominion5x5:
-                    result = "DEFINITELY_NOT_DOMINION_5x5";
-                    break;
-                case GameQueueType.ARURF5x5:
-                    result = "ARURF_5x5";
-                    break;
-                case GameQueueType.TeamBuilderDraftUnranked5x5:
-                    result = "TEAM_BUILDER_DRAFT_UNRANKED_5x5";
-                    break;
-                case GameQueueType.TeamBuilderDraftRanked5x5:
-                    result = "TEAM_BUILDER_DRAFT_RANKED_5x5";
-                    break;
-                case GameQueueType.TeamBuilderRankedSolo:
-                    result = "TEAM_BUILDER_RANKED_SOLO";
-                    break;
-                case GameQueueType.RankedFlexSR:
-                    result = "RANKED_FLEX_SR";
-                    break;
-                default:
-                    result = "";
-                    break;
-            }
+            var result = value.ToString();
             serializer.Serialize(writer, result);
         }
     }

@@ -20,7 +20,7 @@ namespace RiotSharp.MatchEndpoint.Enums
         Normal
     }
 
-    static class LevelUpTypeExtension
+    internal static class LevelUpTypeExtension
     {
         public static string ToCustomString(this LevelUpType levelUpType)
         {

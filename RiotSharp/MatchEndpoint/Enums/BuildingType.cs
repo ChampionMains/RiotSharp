@@ -20,7 +20,7 @@ namespace RiotSharp.MatchEndpoint.Enums
         TowerBuilding
     }
 
-    static class BuildingTypeExtension
+    internal static class BuildingTypeExtension
     {
         public static string ToCustomString(this BuildingType buildingType)
         {

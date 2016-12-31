@@ -40,7 +40,7 @@ namespace RiotSharp.MatchEndpoint.Enums
         Bottom
     }
 
-    static class LaneExtension
+    internal static class LaneExtension
     {
         public static string ToCustomString(this Lane lane)
         {

@@ -35,7 +35,7 @@ namespace RiotSharp.MatchEndpoint.Enums
         PointE
     }
 
-    static class CapturedPointExtension
+    internal static class CapturedPointExtension
     {
         public static string ToCustomString(this CapturedPoint capturePoint)
         {

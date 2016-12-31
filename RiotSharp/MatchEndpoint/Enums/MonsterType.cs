@@ -35,7 +35,7 @@ namespace RiotSharp.MatchEndpoint.Enums
         Vilemaw
     }
 
-    static class MonsterTypeExtension
+    internal static class MonsterTypeExtension
     {
         public static string ToCustomString(this MonsterType monsterType)
         {

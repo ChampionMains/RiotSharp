@@ -70,7 +70,7 @@ namespace RiotSharp.MatchEndpoint.Enums
         WardPlaced
     }
 
-    static class EventTypeExtension
+    internal static class EventTypeExtension
     {
         public static string ToCustomString(this EventType eventType)
         {
